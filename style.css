@@ -1,0 +1,28 @@
+
+/* Configurações gerais da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aparência do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f1fa;
+    color: #333333;
+    padding: 40px;
+}
+
+/* Título principal */
+h1 {
+    color: #7041a6;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+/* Texto de apresentação */
+p {
+    font-size: 16px;
+    color: #666666;
+}
