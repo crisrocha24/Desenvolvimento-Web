@@ -1,22 +1,49 @@
 
-// Lista que vai armazenar as matérias cadastradas
+// Lista de matérias
 let materias = [];
 
-// Função para cadastrar uma matéria
+// Elementos do HTML
+const formulario = document.getElementById("formMateria");
+const campoMateria = document.getElementById("nomeMateria");
+const listaMaterias = document.getElementById("listaMaterias");
+
+// Função para cadastrar matéria
 function cadastrarMateria(nome) {
 
-    // Verifica se o nome foi preenchido
     if (nome.trim() === "") {
         alert("Digite o nome da matéria!");
         return;
     }
 
-    // Adiciona a matéria à lista
     materias.push(nome);
 
-    // Mostra as matérias no console
-    console.log(materias);
+    atualizarLista();
 
-    alert("Matéria cadastrada com sucesso!");
+    campoMateria.value = "";
 }
 
+// Mostrar as matérias na tela
+function atualizarLista() {
+
+    listaMaterias.innerHTML = "";
+
+    materias.forEach(function(materia) {
+
+        const item = document.createElement("li");
+
+        item.textContent = materia;
+
+        listaMaterias.appendChild(item);
+
+    });
+
+}
+
+// Evento do formulário
+formulario.addEventListener("submit", function(evento) {
+
+    evento.preventDefault();
+
+    cadastrarMateria(campoMateria.value);
+
+});
