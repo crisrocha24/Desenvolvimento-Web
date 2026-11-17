@@ -1,4 +1,4 @@
-const materias = [];
+let materias = JSON.parse(localStorage.getItem("materias")) || [];
 
 const formulario = document.getElementById("formMateria");
 const campoMateria = document.getElementById("nomeMateria");
@@ -15,6 +15,7 @@ formulario.addEventListener("submit", function(evento) {
     }
 
     materias.push(nome);
+    localStorage.setItem("materias", JSON.stringify(materias));
 
     const item = document.createElement("li");
     item.textContent = nome;
@@ -22,4 +23,9 @@ formulario.addEventListener("submit", function(evento) {
     listaMaterias.appendChild(item);
 
     campoMateria.value = "";
+});
+materias.forEach(function(nome) {
+    const item = document.createElement("li");
+    item.textContent = nome;
+    listaMaterias.appendChild(item);
 });
